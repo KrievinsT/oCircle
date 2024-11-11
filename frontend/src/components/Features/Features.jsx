@@ -1,11 +1,10 @@
 import React from 'react';
 import './Features.scss';
 import laptopImage from '../../assets/laptop-user.png';
-
-import searchIcon from '../../assets/search-icon.svg';
-import collectIcon from '../../assets/collect-icon.svg';
-import distributeIcon from '../../assets/distribute-icon.svg';
-import analyzeIcon from '../../assets/analyze-icon.svg';
+import searchIcon from '../../assets/search-icon.png';
+import collectIcon from '../../assets/collect-icon.png';
+import distributeIcon from '../../assets/distribute-icon.png';
+import analyzeIcon from '../../assets/analyze-icon.png';
 
 const Features = () => {
   return (
