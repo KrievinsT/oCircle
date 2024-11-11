@@ -14,18 +14,29 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         <div className="header__content">
-          {/* Left Navigation */}
           <nav className="header__nav header__nav--left">
-            <a href="#features" className="header__nav-link">
+            <a 
+              href="#features" 
+              className={`header__nav-link ${activeSection === 'features' ? 'active' : ''}`}
+            >
               Features
             </a>
-            <a href="#pricing" className="header__nav-link">
+            <a 
+              href="#pricing" 
+              className={`header__nav-link ${activeSection === 'pricing' ? 'active' : ''}`}
+            >
               Pricing
             </a>
-            <a href="#testimonials" className="header__nav-link">
+            <a 
+              href="#testimonials" 
+              className={`header__nav-link ${activeSection === 'testimonials' ? 'active' : ''}`}
+            >
               Testimonials
             </a>
-            <a href="#resources" className="header__nav-link">
+            <a 
+              href="#resources" 
+              className={`header__nav-link ${activeSection === 'resources' ? 'active' : ''}`}
+            >
               Resources
             </a>
           </nav>
