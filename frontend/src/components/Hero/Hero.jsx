@@ -26,7 +26,7 @@ const Hero = () => {
           </button>
   
           <div className="hero__image-container">
-            <div className="hero__team-image" style={{ backgroundImage: `url(${teamImage})` }}></div>
+            <img src={teamImage} className="hero__team-image"/>
           </div>
   
           <div className="hero__customers">
