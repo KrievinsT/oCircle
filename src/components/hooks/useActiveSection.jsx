@@ -4,25 +4,38 @@ export const useActiveSection = () => {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '-50% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const rect = entry.target.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+            const percentVisible = visibleHeight / entry.target.offsetHeight;
+            
+            if (percentVisible > 0.3) {
+              setActiveSection(entry.target.id);
+            }
+          }
+        });
+      },
+      {
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+        rootMargin: '-80px 0px -20% 0px'
+      }
+    );
 
     const sections = document.querySelectorAll('section[id]');
-    sections.forEach(section => observer.observe(section));
+    
+    if (sections.length > 0) {
+      sections.forEach(section => observer.observe(section));
+    }
 
     return () => {
-      sections.forEach(section => observer.unobserve(section));
+      if (sections.length > 0) {
+        sections.forEach(section => observer.unobserve(section));
+      }
     };
   }, []);
 
