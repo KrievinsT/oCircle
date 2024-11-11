@@ -1,7 +1,6 @@
 import React from 'react';
 import './Awards.scss';
 
-// Import images directly as modules
 import g2LeaderLogo from '../../assets/awards/g2-leader-2022.png';
 import trustRadiusLogo from '../../assets/awards/trustradius-most-loved-2021.png';
 import getAppLogo from '../../assets/awards/getapp-leader-2022.png';
@@ -84,4 +83,4 @@ const Awards = () => {
   );
 };
 
-export default Awards;
+export default Awards; 

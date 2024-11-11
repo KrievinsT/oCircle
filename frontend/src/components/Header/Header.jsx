@@ -64,13 +64,11 @@ const Header = () => {
                 strokeLinejoin="round"
               >
                 {isMobileMenuOpen ? (
-                  // X icon when menu is open
                   <>
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </>
                 ) : (
-                  // Hamburger icon when menu is closed
                   <>
                     <line x1="4" y1="12" x2="20" y2="12" />
                     <line x1="4" y1="6" x2="20" y2="6" />

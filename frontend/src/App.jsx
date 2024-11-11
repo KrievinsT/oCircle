@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Promise from './components/Promise/Promise';
 import Awards from './components/Awards/Awards';
+import Features from './components/Features/Features';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <Promise />
       <Awards />
+      <Features />
     </>
   );
 }
