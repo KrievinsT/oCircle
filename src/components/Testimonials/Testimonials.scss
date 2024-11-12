@@ -8,17 +8,22 @@
       padding: 0 20px;
     }
   
-    &__header {
+    &__container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 48px;
+    }
+  
+    &__left {
+      flex-basis: 50%;
+      text-align: left;
     }
   
     &__title {
       font-size: 32px;
       font-weight: 600;
       color: #1a1a1a;
+      margin-bottom: 16px;
     }
   
     &__link {
@@ -33,10 +38,10 @@
       }
     }
   
-    &__list {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
+    &__right {
+      flex-basis: 50%;
+      display: flex;
+      justify-content: center;
     }
   
     &__item {
@@ -45,6 +50,7 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       padding: 24px;
       transition: transform 0.3s ease;
+      max-width: 400px;
   
       &:hover {
         transform: translateY(-4px);
@@ -58,8 +64,8 @@
       }
   
       &-logo {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         object-fit: contain;
         margin-bottom: 16px;
       }
@@ -94,24 +100,22 @@
       }
     }
   
-    @media (max-width: 1024px) {
-      &__list {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  
     @media (max-width: 768px) {
       padding: 40px 0;
   
-      &__header {
+      &__container {
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+      }
+  
+      &__left {
+        flex-basis: auto;
         margin-bottom: 32px;
       }
   
-      &__list {
-        grid-template-columns: 1fr;
+      &__right {
+        flex-basis: auto;
+        justify-content: flex-start;
       }
     }
   }
