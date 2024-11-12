@@ -1,11 +1,21 @@
 .testimonials {
     padding: 80px 0;
-    background-color: #f0fdff;
+    background-color: white;
   
     &__content {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+    }
+  
+    &__title-container {
+      margin-bottom: 40px;
+    }
+  
+    &__title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #1a1a1a;
     }
   
     &__container {
@@ -17,13 +27,6 @@
     &__left {
       flex-basis: 50%;
       text-align: left;
-    }
-  
-    &__title {
-      font-size: 32px;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 16px;
     }
   
     &__link {
@@ -42,10 +45,11 @@
       flex-basis: 50%;
       display: flex;
       justify-content: center;
+      align-items: center;
     }
   
     &__item {
-      background-color: white;
+      background-color: #f0fdff;
       border-radius: 8px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       padding: 24px;
@@ -70,6 +74,12 @@
         margin-bottom: 16px;
       }
   
+      &-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+  
       &-text {
         font-size: 16px;
         color: #4b5563;
@@ -80,12 +90,6 @@
         display: flex;
         align-items: center;
         gap: 12px;
-      }
-  
-      &-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
       }
   
       &-name {
