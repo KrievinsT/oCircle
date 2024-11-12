@@ -3,7 +3,7 @@ import './Features.scss';
 import laptopImage from '../../assets/laptop-user.png';
 import distributeImage from '../../assets/distribute.png';
 import collectImage from '../../assets/collect.png';
-import analyzeImage from '../../assets/analyze.png';
+import analyzeImage from '../../assets/analysis.png';
 import searchIcon from '../../assets/search-icon.png';
 import collectIcon from '../../assets/collect-icon.png';
 import distributeIcon from '../../assets/distribute-icon.png';
