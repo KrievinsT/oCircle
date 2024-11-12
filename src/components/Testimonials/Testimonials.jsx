@@ -1,7 +1,7 @@
 import React from 'react';
 import './Testimonials.scss';
-import PaypalLogo from '../assets/paypal.png';
-import GirlImage from '../assets/girl_sit.png';
+import PaypalLogo from '../../assets/paypal.png';
+import GirlImage from '../../assets/girl_sit.png';
 
 const Testimonials = () => {
   return (
