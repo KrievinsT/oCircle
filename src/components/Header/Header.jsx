@@ -25,6 +25,7 @@ const Header = () => {
               href="#pricing" 
               className={`header__nav-link ${activeSection === 'pricing' ? 'active' : ''}`}
             >
+
               Testimonials
             </a>
             <a 

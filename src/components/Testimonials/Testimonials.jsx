@@ -1,4 +1,3 @@
-// Testimonials.jsx
 import React from 'react';
 import { Play } from 'lucide-react';
 import './Testimonials.scss';
