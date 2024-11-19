@@ -1,5 +1,5 @@
 import CircleLogo from "../../assets/logos/mask-group.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.scss";
 import { useActiveSection } from '../hooks/useActiveSection';
 
@@ -7,8 +7,51 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection();
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.header')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavClick = (e) => {
+    // Only prevent default if it's a hash link
+    if (e.currentTarget.href.includes('#')) {
+      e.preventDefault();
+      const href = e.currentTarget.getAttribute('href');
+      const element = document.querySelector(href);
+      const headerOffset = 80; // Adjust based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    setIsMobileMenuOpen(false);
   };
   
   return (
@@ -19,24 +62,21 @@ const Header = () => {
             <a 
               href="#features" 
               className={`header__nav-link ${activeSection === 'features' ? 'active' : ''}`}
+              onClick={handleNavClick}
             >
               Features
             </a>
             <a 
-              href="#pricing" 
-              className={`header__nav-link ${activeSection === 'pricing' ? 'active' : ''}`}
-            >
-              Pricing
-            </a>
-            <a 
               href="#testimonials" 
               className={`header__nav-link ${activeSection === 'testimonials' ? 'active' : ''}`}
+              onClick={handleNavClick}
             >
               Testimonials
             </a>
             <a 
               href="#resources" 
               className={`header__nav-link ${activeSection === 'resources' ? 'active' : ''}`}
+              onClick={handleNavClick}
             >
               Resources
             </a>
@@ -55,10 +95,18 @@ const Header = () => {
 
           <div className="header__right">
             <nav className="header__nav header__nav--right">
-              <a href="#company" className="header__nav-link">
+              <a 
+                href="#company" 
+                className={`header__nav-link ${activeSection === 'company' ? 'active' : ''}`}
+                onClick={handleNavClick}
+              >
                 Company
               </a>
-              <a href="#contact" className="header__nav-link">
+              <a 
+                href="#contact" 
+                className={`header__nav-link ${activeSection === 'contact' ? 'active' : ''}`}
+                onClick={handleNavClick}
+              >
                 Contact
               </a>
             </nav>
@@ -94,22 +142,39 @@ const Header = () => {
 
       <div className={`header__mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
         <nav>
-          <a href="#features" className="header__nav-link" onClick={toggleMobileMenu}>
+          <a 
+            href="#features" 
+            className={`header__nav-link ${activeSection === 'features' ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
             Features
           </a>
-          <a href="#pricing" className="header__nav-link" onClick={toggleMobileMenu}>
-            Pricing
-          </a>
-          <a href="#testimonials" className="header__nav-link" onClick={toggleMobileMenu}>
+          <a 
+            href="#testimonials" 
+            className={`header__nav-link ${activeSection === 'testimonials' ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
             Testimonials
           </a>
-          <a href="#resources" className="header__nav-link" onClick={toggleMobileMenu}>
+          <a 
+            href="#resources" 
+            className={`header__nav-link ${activeSection === 'resources' ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
             Resources
           </a>
-          <a href="#company" className="header__nav-link" onClick={toggleMobileMenu}>
+          <a 
+            href="#company" 
+            className={`header__nav-link ${activeSection === 'company' ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
             Company
           </a>
-          <a href="#contact" className="header__nav-link" onClick={toggleMobileMenu}>
+          <a 
+            href="#contact" 
+            className={`header__nav-link ${activeSection === 'contact' ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
             Contact
           </a>
           <button className="header__login-btn" onClick={toggleMobileMenu}>

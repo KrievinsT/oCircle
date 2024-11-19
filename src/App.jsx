@@ -13,14 +13,24 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <>
-      <Header />
-      <Hero />
-      <Promise />
-      <Awards />
-      <Features />
-      <Testimonials />
-      <Contact />
-      <Resources />
+     <Header />
+      <main>
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="features">
+          <Features />
+        </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+        <section id="resources">
+          <Resources />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </main>
       <Footer />
     </>
   );
