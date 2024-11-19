@@ -1,4 +1,6 @@
 import React from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from './assets/vite.svg';
 import './assets/App.scss';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
