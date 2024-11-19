@@ -8,6 +8,7 @@
     display: flex;
     align-items: flex-start;
     gap: 64px;
+    position: relative;
   }
   
   &__header {
@@ -65,13 +66,15 @@
     position: relative;
     display: flex;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
                 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   
   &__media {
     position: relative;
+    max-height:400px;
+    max-width:400px;
     flex: 1;
     background-color: #f97316;
     
@@ -124,11 +127,16 @@
   }
   
   &__quote {
+    max-height:200px;
+    text-align: left;
     flex: 1;
     background-color: #ecfeff;
     padding: 48px;
     display: flex;
     align-items: center;
+    position:absolute;
+    right:0;
+    bottom:0;
   }
   
   &__quote-content {
@@ -141,7 +149,7 @@
   }
   
   &__quote-text {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.6;
     color: #4b5563;
     margin-bottom: 32px;
@@ -168,32 +176,43 @@
   
   &__navigation {
     position: absolute;
-    right: -24px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 5px;
+    top: 10px;
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 8px;
+    gap: 1px;
+    padding: 8p x;
+    z-index: 2;
   }
   
-  &__nav-dot {
-    width: 8px;
-    height: 8px;
+  &__nav-arrow {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
-    background-color: #d1d5db;
+    background-color: transparent;
     padding: 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.2s ease;
     
-    &--active {
-      background-color: #06b6d4;
+    &--prev {
+      .testimonials__nav-arrow-icon {
+        color: #06b6d4;
+        width: 24px;
+        height: 24px;
+      }
     }
     
-    &:hover:not(&--active) {
-      background-color: #9ca3af;
+    &--next {
+      .testimonials__nav-arrow-icon {
+        color: #06b6d4;
+        width: 24px;
+        height: 24px;
+      }
     }
+    
   }
   
   @media (max-width: 1024px) {
@@ -265,6 +284,10 @@
     
     &__title {
       font-size: 32px;
+    }
+
+    &__quote {
+      position:initial;
     }
     
     &__quote-text {

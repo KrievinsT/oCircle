@@ -55,7 +55,7 @@ const Hero = () => {
               </div>
               <div className="hero__badge">
                 <span className="hero__badge-check">✓</span>
-                <span className="hero__badge-text"><strong>Leader</strong>@G2 Summer</span>
+                <span className="hero__badge-text"><strong>Leader@G2</strong> Summer</span>
               </div>
             </div>
           </div>
