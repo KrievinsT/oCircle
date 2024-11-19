@@ -7,9 +7,9 @@ import staringImage from '../../assets/staring.png';
 const Resources = () => {
   const resourceCards = [
     {
-      image: computingImage, 
+      image: computingImage,
       title: 'Excepteur sint occaecat cupidatat non proident',
-      description: [
+      paragraphs: [
         'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos',
         'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli'
       ]
@@ -17,7 +17,7 @@ const Resources = () => {
     {
       image: footballImage,
       title: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam',
-      description: [
+      paragraphs: [
         'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.',
         'nisi ut aliquid ex ea commodi consequatur autem vel eum iure reprehenderit'
       ]
@@ -25,7 +25,7 @@ const Resources = () => {
     {
       image: staringImage,
       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      description: [
+      paragraphs: [
         'Couptatem accusantium doloremque laudantium, totam rem aperiam',
         'Aeque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
       ]
@@ -33,29 +33,43 @@ const Resources = () => {
   ];
 
   return (
-    <section id="resources" className="resources">
+    <section className="resources">
       <div className="resources__container">
-        <div className="resources__header">
+        <header className="resources__header">
           <span className="resources__label">RESOURCES</span>
           <h2 className="resources__title">Stay in the know</h2>
-        </div>
+        </header>
         
         <div className="resources__cards">
           {resourceCards.map((card, index) => (
-            <div key={index} className="resources__card">
-              <div className="resources__card-image">
-                <img src={card.image} alt={card.title} />
-              </div>
+            <article key={index} className="resources__card">
+              <figure className="resources__card-image">
+                <img 
+                  src={card.image} 
+                  alt="" 
+                  loading="lazy"
+                />
+              </figure>
               <div className="resources__card-content">
-                <h3 className="resources__card-title">{card.title}</h3>
-                {card.description.map((paragraph, pIndex) => (
-                  <p key={pIndex} className="resources__card-description">
-                    {paragraph}
-                  </p>
-                ))}
-                <button className="resources__card-button">Read more</button>
+                <h3 className="resources__card-title">
+                  {card.title}
+                </h3>
+                <div className="resources__card-text">
+                  {card.paragraphs.map((paragraph, idx) => (
+                    <p key={idx} className="resources__card-description">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <button 
+                  type="button" 
+                  className="resources__card-button"
+                  aria-label="Read more"
+                >
+                  Read more
+                </button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

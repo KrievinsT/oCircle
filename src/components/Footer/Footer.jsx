@@ -1,3 +1,4 @@
+// Footer.jsx
 import React from 'react';
 import UsMap from '../../assets/us-map.png';
 import TwitterIcon from '../../assets/twitter-image.png';
@@ -13,7 +14,9 @@ const Footer = () => {
           <div className="footer__map-section">
             <div className="footer__map-container">
               <img src={UsMap} alt="US Map" className="footer__map" />
-              <p className="footer__made-with">Made with lots of ❤️ in San Francisco</p>
+              <div className="footer__made-with">
+                Made with lots of <span role="img" aria-label="heart">❤️</span> in San Francisco
+              </div>
             </div>
           </div>
 
