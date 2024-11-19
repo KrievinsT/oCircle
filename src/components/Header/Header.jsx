@@ -10,6 +10,7 @@ const Header = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  
   return (
     <header className="header">
       <div className="header__container">
@@ -25,7 +26,12 @@ const Header = () => {
               href="#pricing" 
               className={`header__nav-link ${activeSection === 'pricing' ? 'active' : ''}`}
             >
-
+              Pricing
+            </a>
+            <a 
+              href="#testimonials" 
+              className={`header__nav-link ${activeSection === 'testimonials' ? 'active' : ''}`}
+            >
               Testimonials
             </a>
             <a 
@@ -36,7 +42,6 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Logo */}
           <div className="header__logo">
             <a href="/" className="header__logo-link">
               <img
@@ -48,7 +53,6 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Right Navigation */}
           <div className="header__right">
             <nav className="header__nav header__nav--right">
               <a href="#company" className="header__nav-link">
@@ -59,7 +63,7 @@ const Header = () => {
               </a>
             </nav>
             <button className="header__login-btn">Login</button>
-            {/* Hamburger Menu Button */}
+
             <button className="header__hamburger" onClick={toggleMobileMenu}>
               <svg
                 className="header__hamburger-icon"
@@ -88,30 +92,29 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`header__mobile-menu ${isMobileMenuOpen ? "active" : ""}`}
-      >
+      <div className={`header__mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
         <nav>
-          <a href="#features" className="header__nav-link">
+          <a href="#features" className="header__nav-link" onClick={toggleMobileMenu}>
             Features
           </a>
-          <a href="#pricing" className="header__nav-link">
+          <a href="#pricing" className="header__nav-link" onClick={toggleMobileMenu}>
             Pricing
           </a>
-          <a href="#testimonials" className="header__nav-link">
+          <a href="#testimonials" className="header__nav-link" onClick={toggleMobileMenu}>
             Testimonials
           </a>
-          <a href="#resources" className="header__nav-link">
+          <a href="#resources" className="header__nav-link" onClick={toggleMobileMenu}>
             Resources
           </a>
-          <a href="#company" className="header__nav-link">
+          <a href="#company" className="header__nav-link" onClick={toggleMobileMenu}>
             Company
           </a>
-          <a href="#contact" className="header__nav-link">
+          <a href="#contact" className="header__nav-link" onClick={toggleMobileMenu}>
             Contact
           </a>
-          <button className="header__login-btn">Login</button>
+          <button className="header__login-btn" onClick={toggleMobileMenu}>
+            Login
+          </button>
         </nav>
       </div>
     </header>
