@@ -48,13 +48,22 @@
       }
   
       &-image {
+        position: relative;
         width: 100%;
         height: 240px;
-        overflow: hidden;
-  
+        margin: 0;
+        padding: 0;
+        
         img {
-          width: 100%;
-          height: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          max-width: none;
           object-fit: cover;
         }
       }
@@ -100,26 +109,90 @@
         }
       }
     }
-}
 
-@media (max-width: 1024px) {
-    .resources {
+    @media (max-width: 1024px) {
       &__cards {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        margin: 0 auto;
       }
     }
-}
-  
-@media (max-width: 640px) {
-    .resources {
+    
+    @media (max-width: 640px) {
       padding: 4rem 1rem;
+      
+      &__container {
+        padding: 0;
+      }
   
       &__cards {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 450px;
+        margin: 0 auto;
+        padding: 0 1rem;
       }
   
       &__title {
         font-size: 1.875rem;
+      }
+
+      &__card {
+        margin: 0 auto;
+        width: 100%;
+        
+        &-image {
+          height: 200px;
+          position: relative;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+          
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            max-width: none;
+            object-fit: cover;
+          }
+        }
+        
+        &-content {
+          padding: 1.5rem;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        &-title {
+          text-align: center;
+          max-width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        &-text {
+          text-align: center;
+          max-width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        &-description {
+          text-align: center;
+        }
+        
+        &-button {
+          margin: 0 auto;
+          display: inline-flex;
+          justify-content: center;
+        }
       }
     }
 }
