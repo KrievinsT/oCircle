@@ -23,13 +23,13 @@ const Features = () => {
       distribute: {
         title: 'Distribute',
         subtitle: 'Seamless survey distribution',
-        description: 'Share your surveys across multiple channels with our intelligent distribution system. Reach your target audience through email campaigns, social media, embedded forms, or custom API integrations while maintaining complete control over your data collection process.',
+        description: 'Share surveys across multiple channels with our distribution system. Reach your target audience through email campaigns, social media, or custom API integrations while maintaining complete control over your data collection process.',
         image: distributeImage
       },
       collect: {
         title: 'Collect',
         subtitle: 'Real-time data collection',
-        description: 'Gather responses efficiently with our advanced collection tools. Whether youre conducting academic research, market analysis, or employee feedback, our platform ensures secure, organized, and instant data collection with powerful validation and verification features.',
+        description: 'Gather responses efficiently with our collection tools. Whether youre conducting academic research, market analysis, or employee feedback, our platform ensures secure and instant data collection with powerful validation and verification features.',
         image: collectImage
       },
       analyze: {
