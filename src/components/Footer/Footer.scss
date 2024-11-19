@@ -10,10 +10,13 @@
     }
   
     &__content {
+      max-width: 800px;
+      margin-inline: auto;
       display: flex;
       justify-content: space-between;
       margin-bottom: 60px;
-      gap: 40px;
+      flex-direction: row;
+      gap: 20px;
     }
   
     &__map-section {
