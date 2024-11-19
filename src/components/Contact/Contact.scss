@@ -1,0 +1,123 @@
+.contact {
+    padding: 80px 0;
+    background-color: #ffffff;
+    scroll-margin-top: 64px;
+  
+    &__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+  
+    &__info {
+      text-align: left;
+    }
+  
+    &__title {
+      font-size: 42px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+      line-height: 1.2;
+  
+      &-emphasis {
+        font-weight: 700;
+      }
+    }
+  
+    &__description {
+      font-size: 18px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+  
+    &__buttons {
+      display: flex;
+      gap: 16px;
+    }
+  
+    &__button {
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+  
+      &--primary {
+        background-color: #00d4d4;
+        color: white;
+        border: none;
+  
+        &:hover {
+          background-color: darken(#00d4d4, 5%);
+        }
+      }
+  
+      &--secondary {
+        background-color: transparent;
+        color: #00d4d4;
+        border: 1px solid #00d4d4;
+  
+        &:hover {
+          background-color: rgba(0, 212, 212, 0.05);
+        }
+      }
+    }
+  
+    &__image-wrapper {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  
+    &__image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  
+    @media (max-width: 1024px) {
+      &__content {
+        gap: 40px;
+        padding: 0 40px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      padding: 40px 0;
+  
+      &__content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 20px;
+      }
+  
+      &__info {
+        text-align: center;
+      }
+  
+      &__title {
+        font-size: 36px;
+      }
+  
+      &__description {
+        font-size: 16px;
+        margin: 0 auto 32px;
+      }
+  
+      &__buttons {
+        flex-direction: column;
+      }
+    }
+  }
