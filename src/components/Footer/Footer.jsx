@@ -1,4 +1,4 @@
-// Footer.jsx
+
 import React from 'react';
 import UsMap from '../../assets/us-map.png';
 import TwitterIcon from '../../assets/twitter-image.png';
@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__content">
-          {/* Map Section with Overlay Text */}
+          
           <div className="footer__map-section">
             <div className="footer__map-container">
               <img src={UsMap} alt="US Map" className="footer__map" />
@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Rest of the component remains the same */}
+          
           <div className="footer__nav-sections">
             <div className="footer__nav-group">
               <h3 className="footer__nav-title">Products</h3>
@@ -62,6 +62,9 @@ const Footer = () => {
             Copyright 2022 Circle. All rights reserved.
           </p>
 
+    
+
+          <div className="footer__legal-links">
           <div className="footer__social">
             <a 
               href="https://linkedin.com" 
@@ -88,8 +91,6 @@ const Footer = () => {
               />
             </a>
           </div>
-
-          <div className="footer__legal-links">
             <a href="/privacy" className="footer__legal-link">Privacy Policy</a>
             <span className="footer__separator">|</span>
             <a href="/data-security" className="footer__legal-link">Data & Security</a>
