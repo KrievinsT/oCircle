@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.scss';
-import laptopImage from '../../assets/laptop-typing.png';
+import laptopImage from '../../assets/laptoptyping.png';
 
 const Contact = () => {
   return (
