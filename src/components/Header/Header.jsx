@@ -7,7 +7,6 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection();
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (isMobileMenuOpen && !event.target.closest('.header')) {
@@ -19,7 +18,6 @@ const Header = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -36,12 +34,11 @@ const Header = () => {
   };
 
   const handleNavClick = (e) => {
-    // Only prevent default if it's a hash link
     if (e.currentTarget.href.includes('#')) {
       e.preventDefault();
       const href = e.currentTarget.getAttribute('href');
       const element = document.querySelector(href);
-      const headerOffset = 80; // Adjust based on your header height
+      const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
