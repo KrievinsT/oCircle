@@ -6,22 +6,21 @@ export const useActiveSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const rect = entry.target.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            
-            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-            const percentVisible = visibleHeight / entry.target.offsetHeight;
-            
-            if (percentVisible > 0.3) {
-              setActiveSection(entry.target.id);
-            }
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          const mostVisible = visibleEntries[0];
+          if (mostVisible.intersectionRatio > 0.3) {
+            setActiveSection(mostVisible.target.id);
           }
-        });
+        } else {
+          setActiveSection('');
+        }
       },
       {
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+        threshold: [0, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0],
         rootMargin: '-80px 0px -20% 0px'
       }
     );
@@ -30,13 +29,20 @@ export const useActiveSection = () => {
     
     if (sections.length > 0) {
       sections.forEach(section => observer.observe(section));
-    }
 
-    return () => {
-      if (sections.length > 0) {
+      const handleScroll = () => {
+        if (window.scrollY === 0) {
+          setActiveSection('');
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
         sections.forEach(section => observer.unobserve(section));
-      }
-    };
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, []);
 
   return activeSection;
